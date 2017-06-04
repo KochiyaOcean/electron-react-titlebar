@@ -112,8 +112,9 @@ class MenuList extends PureComponent {
         <div className="foldout" style={{
           position: 'absolute',
           marginLeft: rect.left,
-          minWidth: rect.width,
+          maxWidth: `calc(100% - ${rect.left}px)`,
           height: '100%',
+          overflow: 'hidden',
           top: 0,
         }}>
           <div id="app-menu-foldout">

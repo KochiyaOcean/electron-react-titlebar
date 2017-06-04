@@ -227,6 +227,8 @@
 .electron-app-title-bar #app-menu-bar {
   display: flex;
   -webkit-app-region: no-drag;
+  max-width: calc(100% - 135px - 28px);
+  overflow: hidden;
 }
 
 .electron-app-title-bar #app-menu-bar .toolbar-button > button {
@@ -264,6 +266,7 @@
   background: black;
   opacity: 0.4;
   height: 100%;
+  overflow: hidden;
 }
 
 .electron-app-title-bar #foldout-container .overlay:focus {
@@ -303,16 +306,12 @@
 }
 
 .electron-app-title-bar .list-item.selected {
-  --text-color: #fff;
-  --text-secondary-color: #fff;
-  color: #24292e;
+  color: #fff;
   background-color: #0366d6;
 }
 
 .electron-app-title-bar .list-item.selected:focus {
-  --text-color: #fff;
-  --text-secondary-color: #fff;
-  color: #24292e;
+  color: #fff;
   background-color: #0366d6;
 }
 
@@ -330,9 +329,7 @@
 }
 
 .electron-app-title-bar .menu-pane:not(:last-child) .list-item.selected {
-  --text-color: #fff;
-  --text-secondary-color: #fff;
-  color: #24292e;
+  color: #fff;
   background-color: #0366d6;
 }
 
