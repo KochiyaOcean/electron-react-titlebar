@@ -3,9 +3,7 @@ const ReactDOM = require('react-dom')
 const { shell, remote } = require('electron')
 const { openExternal } = shell
 
-require('babel-register')(require('../babel.config'))
-
-const { TitleBar } = require('../src')
+const { TitleBar } = require('..')
 
 const template = [
   {

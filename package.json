@@ -4,7 +4,8 @@
   "description": "A github desktop style title bar component for electron.",
   "main": "index.js",
   "scripts": {
-    "start": "electron app",
+    "build": "babel src --out-dir lib",
+    "prepublish": "babel src --out-dir lib",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "KochiyaOcean",
@@ -40,6 +41,7 @@
     "react-dom": "^15.5.4"
   },
   "dependencies": {
+    "babel-cli": "^6.24.1",
     "lodash": "^4.17.4",
     "react-virtualized": "^9.7.6"
   }
