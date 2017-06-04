@@ -1,0 +1,32 @@
+{
+  "name": "electron-react-titlebar",
+  "version": "0.0.1",
+  "description": "A github desktop style title bar component for electron.",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron app",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "KochiyaOcean",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-eslint": "^7.2.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2017-node7": "^0.5.2",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "classnames": "^2.2.5",
+    "eslint": "^3.2.2",
+    "eslint-plugin-import": "^2.0.0",
+    "eslint-plugin-react": "^6.3.0",
+    "prop-types": "^15.5.10",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "react-virtualized": "^9.7.6"
+  }
+}

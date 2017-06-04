@@ -1,0 +1,13 @@
+html {
+    background: rgb(64,64,64);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
