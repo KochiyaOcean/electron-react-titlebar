@@ -13,9 +13,9 @@ function createWindow() {
 
   mainWindow.loadURL('file://' + __dirname + '/main.html')
 
-  //if (process.env['DEBUG']) {
-  mainWindow.webContents.openDevTools()
-  //}
+  if (process.env['DEBUG']) {
+    mainWindow.webContents.openDevTools()
+  }
 
   mainWindow.on('closed', function() {
     mainWindow = null
