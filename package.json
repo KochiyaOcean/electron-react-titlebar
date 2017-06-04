@@ -9,6 +9,20 @@
   },
   "author": "KochiyaOcean",
   "license": "MIT",
+  "keywords": [
+    "electron",
+    "react",
+    "titlebar",
+    "title"
+  ],
+  "homepage": "https://github.com/KochiyaOcean/electron-react-titlebar",
+  "repository": {
+    "url": "https://github.com/KochiyaOcean/electron-react-titlebar"
+  },
+  "bugs": {
+    "url": "https://github.com/KochiyaOcean/electron-react-titlebar/issues",
+    "email": "root@kochiyaocean.org"
+  },
   "devDependencies": {
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",

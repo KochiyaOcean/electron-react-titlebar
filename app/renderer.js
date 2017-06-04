@@ -67,7 +67,7 @@ const template = [
       {
         label: 'Homepage',
         click: () => {
-          openExternal('https://github.com/kochiyaocean')
+          openExternal('https://github.com/KochiyaOcean/electron-react-titlebar')
         },
       },
     ],
