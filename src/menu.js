@@ -59,7 +59,7 @@ class MenuListItem extends PureComponent {
             curItem.checked && curItem.type === 'checkbox' ? checked : unchecked
           }
         </div>
-        <div className="label">
+        <div className="menu-label">
           <span>
           { curItem.label }
           </span>
@@ -211,7 +211,7 @@ export class MenuBar extends PureComponent {
               <div className="toolbar-button">
                 <button className="button-component" type="button" tabIndex="-1">
                   <div className="menu-item">
-                    <div className="label">
+                    <div className="menu-label">
                       <span aria-label="View">
                         <span aria-hidden="true">{menuItem.label}</span>
                       </span>
