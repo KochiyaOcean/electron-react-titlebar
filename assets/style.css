@@ -13,6 +13,23 @@
   font-size: 12px;
 }
 
+/*resize handler*/
+#electron-app-title-bar .resize-handle {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  -webkit-app-region: no-drag;
+}
+
+#electron-app-title-bar .resize-handle.resize-handle-left {
+  width: 3px;
+  height: 28px;
+}
+
+#electron-app-title-bar .resize-handle.resize-handle-top {
+  width: 100%;
+  height: 3px;
+}
 
 /*icon*/
 #electron-app-title-bar img.icon {

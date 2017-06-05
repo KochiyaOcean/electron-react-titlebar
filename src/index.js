@@ -7,6 +7,8 @@ import { MenuBar } from './menu'
 export const TitleBar = ({ icon, menu, disableMinimize, disableMaximize, className }) => (
   <div id="electron-app-title-bar" className={`electron-app-title-bar ${className || ''}`}>
     <link href={__dirname + "/../assets/style.css"} rel="stylesheet" />
+    <div className="resize-handle resize-handle-top" />
+    <div className="resize-handle resize-handle-left" />
     <img className="icon" src={icon} />
     <MenuBar menu={menu} />
     <WindowControls disableMinimize={disableMinimize} disableMaximize={disableMaximize} />
