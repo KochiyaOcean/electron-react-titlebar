@@ -23,6 +23,12 @@ const template = [
       },
       { type: 'separator' },
       {
+        label: 'Open Dev Tools',
+        click: (item, win, e) => {
+          win.openDevTools()
+        },
+      },
+      {
         label: 'Resizable',
         type: 'checkbox',
         checked: true,
