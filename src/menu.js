@@ -157,8 +157,23 @@ export class MenuBar extends PureComponent {
     if (this.state.clicked) this.setState({ focusing: i })
   }
   onButtonClick = (i) => {
+    if (this.lock) {
+      this.lock = false
+      return
+    }
+    console.log('click', i)
     this.setState({
       clicked: !(this.state.focusing === i && this.state.clicked),
+    })
+  }
+  onTouchStart = (i) => {
+    if (i !== this.state.focusing) {
+      this.lock = true
+    }
+  }
+  onMouseMove = (i) => {
+    if (i === this.state.focusing) return
+    this.setState({
       focusing: i,
     })
   }
@@ -196,6 +211,8 @@ export class MenuBar extends PureComponent {
           return (
             <div key={i} onMouseOver={e => this.onButtonMouseOver(i)}
               onClick={e => this.onButtonClick(i)}
+              onTouchStart={e => this.onTouchStart(i)}
+              onMouseMove={e => this.onMouseMove(i)}
               ref={ref => this.setRefs(ref, i)}
               className={classnames('toolbar-dropdown', {
                 'open': this.state.clicked && i === this.state.focusing,
