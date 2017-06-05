@@ -388,6 +388,10 @@
   color: #6a737d;
 }
 
+#electron-app-title-bar .list-item.selected .accelerator {
+  color: #fff;
+}
+
 #electron-app-title-bar .menu-pane .menu-item.checked .menu-label {
   margin-left: 0;
 }
