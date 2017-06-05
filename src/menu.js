@@ -167,7 +167,7 @@ export class MenuBar extends PureComponent {
     })
   }
   onTouchStart = (i) => {
-    if (i !== this.state.focusing) {
+    if (i !== this.state.focusing && this.state.clicked) {
       this.lock = true
     }
   }
