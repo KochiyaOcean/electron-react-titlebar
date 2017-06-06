@@ -161,7 +161,6 @@ export class MenuBar extends PureComponent {
       this.lock = false
       return
     }
-    console.log('click', i)
     this.setState({
       clicked: !(this.state.focusing === i && this.state.clicked),
     })
