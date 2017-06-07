@@ -244,7 +244,7 @@
 #electron-app-title-bar #app-menu-bar {
   display: flex;
   -webkit-app-region: no-drag;
-  max-width: calc(100% - 135px - 28px);
+  max-width: calc(100% - 163px);
   overflow: hidden;
 }
 
@@ -276,7 +276,7 @@
 }
 
 #electron-app-title-bar #foldout-container {
-  z-index: calc(10 - 2);
+  z-index: 8;
 }
 
 #electron-app-title-bar #foldout-container .overlay {
