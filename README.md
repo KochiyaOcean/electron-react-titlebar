@@ -21,6 +21,7 @@ electron app
 
 ```javascript
 import { TitleBar } from 'electron-react-titlebar'
+import 'electron-react-titlebar/assets/style.css'
 
 ReactDOM.render(
     <TitleBar menu={menuTemplate} icon={iconPath} />,
