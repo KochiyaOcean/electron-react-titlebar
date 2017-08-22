@@ -1,6 +1,6 @@
 {
   "name": "electron-react-titlebar",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "A github desktop style title bar component for electron.",
   "main": "index.js",
   "scripts": {
