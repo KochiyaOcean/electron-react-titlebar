@@ -31,6 +31,10 @@ ReactDOM.render(
 
 ### Options
 
+#### children
+
+Elements to be rendered in between the menu and the window controls (optional).
+
 #### disableMinimize
 
 Disable minimize button
