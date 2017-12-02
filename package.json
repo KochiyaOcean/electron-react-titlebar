@@ -3,6 +3,7 @@
   "version": "0.5.0",
   "description": "A github desktop style title bar component for electron.",
   "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
     "build": "babel src --out-dir lib",
     "prepublish": "babel src --out-dir lib",
@@ -25,6 +26,7 @@
     "email": "root@kochiyaocean.org"
   },
   "devDependencies": {
+    "@types/electron": "^1.6.10",
     "babel-core": "^6.24.1",
     "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
