@@ -8,8 +8,8 @@ export const TitleBar = ({ children, icon, menu, disableMinimize, disableMaximiz
   <div id="electron-app-title-bar" className={`electron-app-title-bar ${className || ''}`}>
     <div className="resize-handle resize-handle-top" />
     <div className="resize-handle resize-handle-left" />
-    {typeof icon !== 'undefined' && <img className="icon" src={icon} />}
-    <MenuBar menu={menu} />
+    {!!icon && <img className="icon" src={icon} />}
+    {!!menu && <MenuBar menu={menu} />}
     {children}
     <WindowControls disableMinimize={disableMinimize} disableMaximize={disableMaximize} />
   </div>

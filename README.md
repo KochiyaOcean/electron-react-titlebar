@@ -37,19 +37,19 @@ Elements to be rendered in between the menu and the window controls (optional).
 
 #### disableMinimize
 
-Disable minimize button
+Disable minimize button (optional).
 
 #### disableMaximize
 
-Disable maximize button
+Disable maximize button (optional).
 
 #### icon
 
-Path to icon file.
+Path to icon file (optional).
 
 #### menu
 
-Menu template of [Electron's Menu](https://github.com/electron/electron/blob/master/docs/api/menu.md#main-process)
+Menu template of [Electron's Menu](https://github.com/electron/electron/blob/master/docs/api/menu.md#main-process) (optional).
 
 Note: electron-react-titlebar is supporting a subset of [Electron's MenuItem](https://github.com/electron/electron/blob/master/docs/api/menu-item.md).
 
