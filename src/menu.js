@@ -53,7 +53,7 @@ class MenuListItem extends PureComponent {
       <hr /> :
       <div className={menuItemClass} onClick={this.handleClick}>
         <div className="status-icon">
-          { 
+          {
             curItem.type === 'radio' ?
             curItem.checked ? radioChecked : radioUnchecked :
             curItem.checked && curItem.type === 'checkbox' ? checked : unchecked
@@ -119,7 +119,7 @@ class MenuList extends PureComponent {
         }}>
           <div id="app-menu-foldout">
             <div className="menu-pane" style={{
-              height: menuListHeight + 5,
+              height: menuListHeight,
               maxHeight: '100%',
             }}>
               <div className="list" role="menu">
@@ -133,6 +133,7 @@ class MenuList extends PureComponent {
                   width={240}
                 />
               </div>
+              <div className="menu-pane menu-endblock" />
             </div>
           </div>
         </div>

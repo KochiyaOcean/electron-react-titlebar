@@ -413,6 +413,10 @@
   border-bottom: 1px solid #e1e4e8;
 }
 
+#electron-app-title-bar .menu-pane .menu-endblock {
+  height: 5px;
+}
+
 #electron-app-title-bar .status-icon {
   margin-left: 10px;
   width: 12px;
