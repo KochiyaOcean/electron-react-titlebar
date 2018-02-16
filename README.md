@@ -42,25 +42,25 @@ ReactDOM.render(
 )
 ```
 
-### Options
+## Options
 
-#### children
+### children?: node
 
 Elements to be rendered in between the menu and the window controls (optional).
 
-#### disableMinimize
+### disableMinimize?: boolean
 
 Disable minimize button (optional).
 
-#### disableMaximize
+### disableMaximize?: boolean
 
 Disable maximize button (optional).
 
-#### icon
+### icon?: string
 
 Path to icon file (optional).
 
-#### menu
+### menu?: \<MenuTemplate\>
 
 Menu template of [Electron's Menu](https://github.com/electron/electron/blob/master/docs/api/menu.md#main-process) (optional).
 
