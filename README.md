@@ -19,6 +19,8 @@ electron app
 
 ## Usage
 
+### If you are using webpack
+
 ```javascript
 import { TitleBar } from 'electron-react-titlebar'
 import 'electron-react-titlebar/assets/style.css'
@@ -26,6 +28,17 @@ import 'electron-react-titlebar/assets/style.css'
 ReactDOM.render(
     <TitleBar menu={menuTemplate} icon={iconPath} />,
     document.querySelector('title-bar')
+)
+```
+
+### If you're not a webpack user and wants to load css directly 
+
+```js
+ReactDOM.render(
+    <TitleBar menu={menuTemplate} icon={iconPath}>
+      <link rel="stylesheet" type="text/css" href={require.resolve('electron-react-titlebar/assets/style.css')} />
+    </TitleBar>,
+    document.body
 )
 ```
 
