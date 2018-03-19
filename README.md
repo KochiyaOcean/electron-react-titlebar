@@ -60,7 +60,7 @@ Disable maximize button (optional).
 
 Path to icon file (optional).
 
-#### currentWindow?: BrowserWindow
+### currentWindow?: \<BrowserWindow\>
 
 The browserWindow Object that window controls affect to. Default value is `remote.currentWindow()` (optional).
 
