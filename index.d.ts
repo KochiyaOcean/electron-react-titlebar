@@ -36,4 +36,5 @@ export const TitleBar: SFC<{
   disableMinimize?: boolean;
   disableMaximize?: boolean;
   className?: string;
+  currentWindow?: any;
 }>;

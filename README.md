@@ -31,7 +31,7 @@ ReactDOM.render(
 )
 ```
 
-### If you're not a webpack user and wants to load css directly 
+### If you're not a webpack user and wants to load css directly
 
 ```js
 ReactDOM.render(
@@ -59,6 +59,10 @@ Disable maximize button (optional).
 ### icon?: string
 
 Path to icon file (optional).
+
+#### currentWindow?: BrowserWindow
+
+The browserWindow Object that window controls affect to. Default value is `remote.currentWindow()` (optional).
 
 ### menu?: \<MenuTemplate\>
 
