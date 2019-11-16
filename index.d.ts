@@ -32,7 +32,7 @@ export interface PartialMenuItemConstructorOptions {
 export const TitleBar: SFC<{
   children?: ReactNode;
   icon?: string;
-  menu: (PartialMenuItemConstructorOptions & { submenu: PartialMenuItemConstructorOptions[] })[];
+  menu?: (PartialMenuItemConstructorOptions & { submenu: PartialMenuItemConstructorOptions[] })[];
   disableMinimize?: boolean;
   disableMaximize?: boolean;
   className?: string;
