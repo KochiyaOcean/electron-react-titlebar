@@ -26,24 +26,24 @@
     "email": "root@kochiyaocean.org"
   },
   "devDependencies": {
-    "babel-core": "^6.24.1",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-eslint": "^7.2.3",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2017-node7": "^0.5.2",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
-    "classnames": "^2.2.5",
-    "eslint": "^3.2.2",
+    "eslint": "^4.19.1",
     "eslint-plugin-import": "^2.0.0",
     "eslint-plugin-react": "^6.3.0",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
-    "babel-cli": "^6.24.1",
     "react-dom": "^15.5.4"
   },
   "dependencies": {
-    "lodash": "^4.17.4",
+    "classnames": "^2.2.6",
+    "lodash": "^4.17.15",
     "react-virtualized": "^9.7.6"
   }
 }
