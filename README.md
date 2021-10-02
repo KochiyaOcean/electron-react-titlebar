@@ -62,7 +62,7 @@ Path to icon file (optional).
 
 ### currentWindow?: \<BrowserWindow\>
 
-The browserWindow Object that window controls affect to. Default value is `remote.currentWindow()` (optional).
+The browserWindow Object that window controls affect to (optional).
 
 ### menu?: \<MenuTemplate\>
 
