@@ -6,7 +6,7 @@
   "exports": {
     "./main": "./dist/main.js",
     "./renderer": "./dist/renderer.js",
-    "./style/style.css": "./assets/style.css"
+    "./assets/style.css": "./assets/style.css"
   },
   "scripts": {
     "build": "tsc && webpack --mode=production",
