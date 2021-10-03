@@ -1,6 +1,10 @@
 import { isEqual } from 'lodash'
 
-export function reduxSet(obj, path, val) {
+type CommonTypes = number | boolean | string
+
+type Obj<T> = T[] | { [key: string | number]: T } | T
+
+export function reduxSet<T>(obj: Obj<T>, path: (string | number)[], val: CommonTypes ): Obj<T> | CommonTypes {
   const [prop, ...restPath] = path
   if (typeof prop === 'undefined') {
     if (!isEqual(obj, val))
@@ -10,7 +14,7 @@ export function reduxSet(obj, path, val) {
   }
   let before
   if (prop in obj) {
-    before = obj[prop]
+    before = (obj as { [key: string | number]: T })[prop]
   } else {
     before = {}
   }
@@ -18,13 +22,16 @@ export function reduxSet(obj, path, val) {
   if (after !== before) {
     let result
     if (Array.isArray(obj)) {
-      result = obj.slice()
-      result[prop] = after
+      result = [
+        ...obj.slice(0, prop as number),
+        after,
+        ...obj.slice((prop as number) + 1, obj.length)
+      ] as T[]
     } else {
       result = {
         ...obj,
         [prop]: after,
-      }
+      } as { [key: string | number]: T }
     }
     return result
   }
