@@ -1,9 +1,9 @@
 const React = require('react')
 const ReactDOM = require('react-dom')
-const { shell, remote } = require('electron')
+const { shell } = require('electron')
 const { openExternal } = shell
 
-const { TitleBar } = require('..')
+const { TitleBar } = require('../dist/renderer')
 
 const template = [
   {
@@ -19,20 +19,14 @@ const template = [
       },
       {
         label: 'Arguments',
-        click: (item, win, e) => console.log(item, win, e),
+        click: (item, e) => console.log(item, e),
       },
       { type: 'separator' },
       {
-        label: 'Open Dev Tools',
-        click: (item, win, e) => {
-          win.openDevTools()
-        },
-      },
-      {
-        label: 'Resizable',
+        label: 'Checkbox',
         type: 'checkbox',
         checked: true,
-        click: (item, win, e) => remote.getCurrentWindow().setResizable(item.checked),
+        click: (item, e) => console.log(item),
       },
       {
         label: 'Quit',
@@ -49,19 +43,19 @@ const template = [
         label: 'Light',
         type: 'radio',
         checked: false,
-        click: (item, win, e) => document.querySelector('html').style.background = 'rgb(240,240,240)',
+        click: (item, e) => document.querySelector('html').style.background = 'rgb(240,240,240)',
       },
       {
         label: 'Dark',
         type: 'radio',
         checked: true,
-        click: (item, win, e) => document.querySelector('html').style.background = 'rgb(64,64,64)',
+        click: (item, e) => document.querySelector('html').style.background = 'rgb(64,64,64)',
       },
       {
         label: 'Black',
         type: 'radio',
         checked: false,
-        click: (item, win, e) => document.querySelector('html').style.background = 'rgb(0,0,0)',
+        click: (item, e) => document.querySelector('html').style.background = 'rgb(0,0,0)',
       },
     ],
   },

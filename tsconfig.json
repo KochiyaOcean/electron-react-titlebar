@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "target": "ES2018",
+    "module": "CommonJS",
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "moduleResolution": "Node",
+    "lib": [
+      "DOM",
+      "es2018",
+      "esnext.AsyncIterable",
+      "esnext.Array",
+      "esnext.Intl",
+      "esnext.Symbol"
+    ],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "sourceMap": true,
+    "outDir": "dist",
+  },
+  "include": ["./src/**/*"]
+}
