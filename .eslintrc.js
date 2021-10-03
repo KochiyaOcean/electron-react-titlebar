@@ -14,5 +14,5 @@ module.exports = {
   "env": { "browser": true, "node": true, "es6": true },
   "rules": {
   },
-  "ignorePatterns": ["*.js"]
+  "ignorePatterns": ["*.js", "*.d.ts"]
 }
