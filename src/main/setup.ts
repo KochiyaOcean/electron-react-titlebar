@@ -1,13 +1,21 @@
-import { ipcMain, BrowserWindow } from 'electron'
+import { ipcMain, BrowserWindow, WebContents } from 'electron'
+
+const setupEventListener = (browserWindow: BrowserWindow, sender: WebContents) => {
+  browserWindow.addListener('maximize', () => {
+    sender.send('electron-react-titlebar/maximunize/change', true, browserWindow.id)
+  })
+  browserWindow.addListener('unmaximize', () => {
+    sender.send('electron-react-titlebar/maximunize/change', false, browserWindow.id)
+  })
+}
 
 export const initialize = (): void => {
   ipcMain.on('electron-react-titlebar/initialize', (event, browserWindowId) => {
-    console.log(browserWindowId)
     const browserWindow = browserWindowId ? BrowserWindow.fromId(browserWindowId) : BrowserWindow.fromWebContents(event.sender)
-    console.log(browserWindow)
-    const callback = () => browserWindow?.webContents.send('electron-react-titlebar/maximunize/change', browserWindow.isMaximized())
-    browserWindow?.on('maximize', callback)
-    browserWindow?.on('unmaximize', callback)
+    if (browserWindow) {
+      setupEventListener(browserWindow, event.sender)
+      event.sender.send('electron-react-titlebar/browser-window-id', browserWindow.id)
+    }
   })
 
   ipcMain.on('electron-react-titlebar/maximumize/set', (event, browserWindowId) => {

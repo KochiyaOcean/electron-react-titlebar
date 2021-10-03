@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback } from 'react'
-import { ipcRenderer } from 'electron'
+import React, { useState, useEffect, useCallback, useRef } from 'react'
+import { ipcRenderer, IpcRendererEvent } from 'electron'
 
 export interface WindowControlsProps {
   disableMinimize?: boolean;
@@ -9,16 +9,24 @@ export interface WindowControlsProps {
 
 export const WindowControls: React.FC<WindowControlsProps> = ({ disableMaximize, disableMinimize, browserWindowId }) => {
   const [isMaximized, setIsMaximized] = useState(false)
+  const remoteBrowserWindowId = useRef(browserWindowId)
 
   useEffect(() => {
-    ipcRenderer.on('electron-react-titlebar/maximunize/change', (event, isWindowMaximumized) => {
-      console.log()
-      setIsMaximized(isWindowMaximumized)
-    })
+    const onMaximimizeStateChange = (event: IpcRendererEvent, isWindowMaximumized: boolean, targetBrowserWindowId: number) => {
+      if (targetBrowserWindowId === remoteBrowserWindowId.current) {
+        setIsMaximized(isWindowMaximumized)
+      }
+    }
+    const onBrowserWindowIdUpdate = (event: IpcRendererEvent, newBrowserWindowId: number) => {
+      remoteBrowserWindowId.current = newBrowserWindowId
+    }
+
+    ipcRenderer.on('electron-react-titlebar/maximunize/change', onMaximimizeStateChange)
+    ipcRenderer.once('electron-react-titlebar/browser-window-id', onBrowserWindowIdUpdate)
     ipcRenderer.send('electron-react-titlebar/initialize', browserWindowId)
 
     return () => {
-      ipcRenderer.removeAllListeners('electron-react-titlebar/maximunize/change')
+      ipcRenderer.removeListener('electron-react-titlebar/maximunize/change', onMaximimizeStateChange)
       ipcRenderer.send('electron-react-titlebar/deinitialize', browserWindowId)
     }
   }, [browserWindowId])
