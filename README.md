@@ -78,10 +78,10 @@ The browserWindow's id that window controls affect to. Default value is the brow
 Menu template of [Electron's Menu](https://github.com/electron/electron/blob/master/docs/api/menu.md#main-process) (optional).
 
 Note: electron-react-titlebar is supporting a subset of [Electron's MenuItem](https://github.com/electron/electron/blob/master/docs/api/menu-item.md).
-P
+
 Supported options:
 
-* `click` - supported, but the parameter only returns `item` and `event`
+* `click` - supported, but the callback only have `item` and `event` parameter, and the `browserWindow` parameter is removed due to restriction since Electron@14
 * `type` - `submenu` is not supported.
 * `label` - supported
 * `enabled` - supported
