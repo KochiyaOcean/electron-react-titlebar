@@ -10,7 +10,7 @@
   "scripts": {
     "build": "tsc && webpack --mode=production",
     "demo": "electron app",
-    "prepublish": "babel src --out-dir lib",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "eslint . --quiet --fix"
   },
