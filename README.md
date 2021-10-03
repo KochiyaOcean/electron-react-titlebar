@@ -26,6 +26,8 @@ app.on('ready', () => {
 })
 ```
 
+### Renderer process
+
 #### If you are using webpack
 
 ```javascript
