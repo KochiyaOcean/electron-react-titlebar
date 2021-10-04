@@ -10,12 +10,13 @@ const setupEventListener = (browserWindow: BrowserWindow, sender: WebContents) =
 }
 
 export const initialize = (): void => {
-  ipcMain.on('electron-react-titlebar/initialize', (event, browserWindowId) => {
+  ipcMain.handle('electron-react-titlebar/initialize', (event, browserWindowId): number | undefined => {
     const browserWindow = browserWindowId ? BrowserWindow.fromId(browserWindowId) : BrowserWindow.fromWebContents(event.sender)
     if (browserWindow) {
       setupEventListener(browserWindow, event.sender)
-      event.sender.send('electron-react-titlebar/browser-window-id', browserWindow.id)
+      return browserWindow.id
     }
+    return undefined
   })
 
   ipcMain.on('electron-react-titlebar/maximumize/set', (event, browserWindowId) => {

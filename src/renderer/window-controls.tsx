@@ -17,17 +17,16 @@ export const WindowControls: React.FC<WindowControlsProps> = ({ disableMaximize,
         setIsMaximized(isWindowMaximumized)
       }
     }
-    const onBrowserWindowIdUpdate = (event: IpcRendererEvent, newBrowserWindowId: number) => {
-      remoteBrowserWindowId.current = newBrowserWindowId
-    }
 
     ipcRenderer.on('electron-react-titlebar/maximunize/change', onMaximimizeStateChange)
-    ipcRenderer.once('electron-react-titlebar/browser-window-id', onBrowserWindowIdUpdate)
-    ipcRenderer.send('electron-react-titlebar/initialize', browserWindowId)
+
+    const updateRemoteBrowserWindowId  = async () => {
+      remoteBrowserWindowId.current = await ipcRenderer.invoke('electron-react-titlebar/initialize', browserWindowId) as number
+    }
+    updateRemoteBrowserWindowId().finally(() => null)
 
     return () => {
       ipcRenderer.removeListener('electron-react-titlebar/maximunize/change', onMaximimizeStateChange)
-      ipcRenderer.send('electron-react-titlebar/deinitialize', browserWindowId)
     }
   }, [browserWindowId])
 
