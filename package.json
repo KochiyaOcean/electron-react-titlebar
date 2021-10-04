@@ -4,9 +4,11 @@
   "description": "A github desktop style title bar component for electron.",
   "main": "index.js",
   "exports": {
+    ".": "./index.js",
     "./main": "./dist/main.js",
     "./renderer": "./dist/renderer.js",
-    "./assets/style.css": "./assets/style.css"
+    "./assets/style.css": "./assets/style.css",
+    "./style": "./assets/style.css"
   },
   "scripts": {
     "build": "tsc && webpack --mode=production",
