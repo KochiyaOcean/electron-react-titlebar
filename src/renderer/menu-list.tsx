@@ -1,5 +1,5 @@
 import React, { CSSProperties, useCallback } from 'react'
-import { Grid } from 'react-virtualized'
+import { VariableSizeGrid } from 'react-window'
 import { MenuItemT, MenuListItem } from './menu-list-item'
 
 export interface MenuListProps {
@@ -17,13 +17,12 @@ export interface MenuListProps {
 type RendererProps = {
   columnIndex: number;
   rowIndex: number;
-  key: string;
   style: CSSProperties;
 }
 
 export const MenuList: React.FC<MenuListProps> = ({ rect, mainIndex, menulist, changeCheckState }) => {
   const getRowHeight = useCallback(
-    ({ index } : { index: number }): number => {
+    (index: number): number => {
       const menuListItem = menulist[index]
       if (menuListItem.visiable === false) {
         return 0
@@ -35,8 +34,8 @@ export const MenuList: React.FC<MenuListProps> = ({ rect, mainIndex, menulist, c
     }, [menulist]
   )
 
-  const MenuListRenderer = useCallback(({ key, rowIndex, style }: RendererProps) => (
-    <MenuListItem key={key}
+  const renderMenuList = useCallback(({ rowIndex, style }: RendererProps) => (
+    <MenuListItem
       curItem={menulist[rowIndex]}
       style={style}
       changeCheckState={changeCheckState}
@@ -44,7 +43,7 @@ export const MenuList: React.FC<MenuListProps> = ({ rect, mainIndex, menulist, c
       subIndex={rowIndex} />
   ), [menulist, changeCheckState, mainIndex])
 
-  const menuListHeight = menulist.map((l, index) => getRowHeight({ index })).reduce((a, b) => a + b, 0)
+  const menuListHeight = menulist.map((l, index) => getRowHeight(index)).reduce((a, b) => a + b, 0)
     return (
       <div id="foldout-container" style={{
         position: 'absolute',
@@ -68,15 +67,16 @@ export const MenuList: React.FC<MenuListProps> = ({ rect, mainIndex, menulist, c
               maxHeight: '100%',
             }}>
               <div className="list" role="menu">
-                <Grid
-                  cellRenderer={MenuListRenderer}
+                <VariableSizeGrid
                   columnCount={1}
                   rowCount={menulist.length}
-                  columnWidth={240}
+                  columnWidth={() => 240}
                   height={menuListHeight}
                   rowHeight={getRowHeight}
                   width={240}
-                />
+                >
+                {renderMenuList}
+                </VariableSizeGrid>
               </div>
               <div className="menu-pane menu-endblock" />
             </div>
