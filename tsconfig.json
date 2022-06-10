@@ -18,6 +18,7 @@
     "emitDeclarationOnly": true,
     "sourceMap": true,
     "outDir": "dist",
+    "skipLibCheck": true,
   },
   "include": ["./src/**/*"]
 }

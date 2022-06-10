@@ -10,8 +10,10 @@ const setupEventListener = (browserWindow: BrowserWindow, sender: WebContents) =
 }
 
 export const initialize = (): void => {
-  ipcMain.handle('electron-react-titlebar/initialize', (event, browserWindowId): number | undefined => {
-    const browserWindow = browserWindowId ? BrowserWindow.fromId(browserWindowId) : BrowserWindow.fromWebContents(event.sender)
+  ipcMain.handle('electron-react-titlebar/initialize', (event, browserWindowId: number): number | undefined => {
+    const browserWindow = browserWindowId
+      ? BrowserWindow.fromId(browserWindowId)
+      : BrowserWindow.fromWebContents(event.sender)
     if (browserWindow) {
       setupEventListener(browserWindow, event.sender)
       return browserWindow.id
@@ -19,8 +21,10 @@ export const initialize = (): void => {
     return undefined
   })
 
-  ipcMain.on('electron-react-titlebar/maximumize/set', (event, browserWindowId) => {
-    const browserWindow = browserWindowId ? BrowserWindow.fromId(browserWindowId) : BrowserWindow.fromWebContents(event.sender)
+  ipcMain.on('electron-react-titlebar/maximumize/set', (event, browserWindowId: number) => {
+    const browserWindow = browserWindowId
+      ? BrowserWindow.fromId(browserWindowId)
+      : BrowserWindow.fromWebContents(event.sender)
     if (browserWindow?.isMaximizable()) {
       if (browserWindow.isMaximized()) {
         browserWindow.unmaximize()
@@ -30,13 +34,17 @@ export const initialize = (): void => {
     }
   })
 
-  ipcMain.on('electron-react-titlebar/minimumize/set', (event, browserWindowId) => {
-    const browserWindow = browserWindowId ? BrowserWindow.fromId(browserWindowId) : BrowserWindow.fromWebContents(event.sender)
+  ipcMain.on('electron-react-titlebar/minimumize/set', (event, browserWindowId: number) => {
+    const browserWindow = browserWindowId
+      ? BrowserWindow.fromId(browserWindowId)
+      : BrowserWindow.fromWebContents(event.sender)
     browserWindow?.minimize()
   })
 
-  ipcMain.on('electron-react-titlebar/close', (event, browserWindowId) => {
-    const browserWindow = browserWindowId ? BrowserWindow.fromId(browserWindowId) : BrowserWindow.fromWebContents(event.sender)
+  ipcMain.on('electron-react-titlebar/close', (event, browserWindowId: number) => {
+    const browserWindow = browserWindowId
+      ? BrowserWindow.fromId(browserWindowId)
+      : BrowserWindow.fromWebContents(event.sender)
     browserWindow?.close()
   })
 }
