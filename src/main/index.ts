@@ -1,1 +1,1 @@
-export { initialize } from "./setup";
+export { initialize } from './setup'

@@ -1,15 +1,15 @@
-import React from "react";
+import React from 'react'
 
-import { WindowControls } from "./window-controls";
-import { MenuBar, MenuT } from "./menu";
+import { WindowControls } from './window-controls'
+import { MenuBar, MenuT } from './menu'
 
 export interface TitleBarProps {
-  icon?: string;
-  menu?: MenuT[];
-  disableMinimize?: boolean;
-  disableMaximize?: boolean;
-  className?: string;
-  browserWindowId?: number;
+  icon?: string
+  menu?: MenuT[]
+  disableMinimize?: boolean
+  disableMaximize?: boolean
+  className?: string
+  browserWindowId?: number
 }
 
 export const TitleBar: React.FC<TitleBarProps> = ({
@@ -21,10 +21,7 @@ export const TitleBar: React.FC<TitleBarProps> = ({
   className,
   browserWindowId,
 }) => (
-  <div
-    id="electron-app-title-bar"
-    className={`electron-app-title-bar ${className || ""}`}
-  >
+  <div id="electron-app-title-bar" className={`electron-app-title-bar ${className || ''}`}>
     <div className="resize-handle resize-handle-top" />
     <div className="resize-handle resize-handle-left" />
     {!!icon && <img className="icon" src={icon} />}
@@ -36,4 +33,4 @@ export const TitleBar: React.FC<TitleBarProps> = ({
       browserWindowId={browserWindowId}
     />
   </div>
-);
+)
