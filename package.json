@@ -13,7 +13,7 @@
   "scripts": {
     "build": "tsc && webpack --mode=production",
     "demo": "electron app",
-    "prepublish": "npm run build",
+    "prepack": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "check": "eslint . --quiet --fix"
   },
