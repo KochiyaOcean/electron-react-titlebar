@@ -4,12 +4,14 @@ import { ipcRenderer, IpcRendererEvent } from 'electron'
 export interface WindowControlsProps {
   disableMinimize?: boolean
   disableMaximize?: boolean
+  disableClose?: boolean
   browserWindowId?: number
 }
 
 export const WindowControls: React.FC<WindowControlsProps> = ({
   disableMaximize,
   disableMinimize,
+  disableClose,
   browserWindowId,
 }) => {
   const [isMaximized, setIsMaximized] = useState(false)
@@ -83,7 +85,13 @@ export const WindowControls: React.FC<WindowControlsProps> = ({
           />
         </svg>
       </button>
-      <button aria-label="close" tabIndex={-1} className="window-control window-close" onClick={setClose}>
+      <button
+        aria-label="close"
+        tabIndex={-1}
+        className="window-control window-close"
+        disabled={disableClose}
+        onClick={setClose}
+      >
         <svg aria-hidden="true" version="1.1" width="10" height="10">
           <path d="M 0,0 0,0.7 4.3,5 0,9.3 0,10 0.7,10 5,5.7 9.3,10 10,10 10,9.3 5.7,5 10,0.7 10,0 9.3,0 5,4.3 0.7,0 Z" />
         </svg>

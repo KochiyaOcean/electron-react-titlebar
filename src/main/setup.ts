@@ -38,13 +38,17 @@ export const initialize = (): void => {
     const browserWindow = browserWindowId
       ? BrowserWindow.fromId(browserWindowId)
       : BrowserWindow.fromWebContents(event.sender)
-    browserWindow?.minimize()
+    if (browserWindow?.isMinimizable()) {
+      browserWindow.minimize()
+    }
   })
 
   ipcMain.on('electron-react-titlebar/close', (event, browserWindowId: number) => {
     const browserWindow = browserWindowId
       ? BrowserWindow.fromId(browserWindowId)
       : BrowserWindow.fromWebContents(event.sender)
-    browserWindow?.close()
+    if (browserWindow?.isClosable()) {
+      browserWindow.close()
+    }
   })
 }

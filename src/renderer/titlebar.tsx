@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { PropsWithChildren } from 'react'
 
 import { WindowControls } from './window-controls'
 import { MenuBar, MenuT } from './menu'
@@ -8,16 +8,18 @@ export interface TitleBarProps {
   menu?: MenuT[]
   disableMinimize?: boolean
   disableMaximize?: boolean
+  disableClose?: boolean
   className?: string
   browserWindowId?: number
 }
 
-export const TitleBar: React.FC<TitleBarProps> = ({
+export const TitleBar: React.FC<PropsWithChildren<TitleBarProps>> = ({
   children,
   icon,
   menu,
   disableMinimize,
   disableMaximize,
+  disableClose,
   className,
   browserWindowId,
 }) => (
@@ -30,6 +32,7 @@ export const TitleBar: React.FC<TitleBarProps> = ({
     <WindowControls
       disableMinimize={disableMinimize}
       disableMaximize={disableMaximize}
+      disableClose={disableClose}
       browserWindowId={browserWindowId}
     />
   </div>
