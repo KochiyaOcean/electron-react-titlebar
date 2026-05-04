@@ -3,10 +3,23 @@
   "version": "1.2.1",
   "description": "A github desktop style title bar component for electron.",
   "main": "index.js",
+  "module": "dist/renderer.mjs",
   "exports": {
-    ".": "./index.js",
-    "./main": "./dist/main.js",
-    "./renderer": "./dist/renderer.js",
+    ".": {
+      "import": "./dist/renderer.mjs",
+      "require": "./dist/renderer.js",
+      "types": "./dist/renderer/index.d.ts"
+    },
+    "./main": {
+      "import": "./dist/main.mjs",
+      "require": "./dist/main.js",
+      "types": "./dist/main/index.d.ts"
+    },
+    "./renderer": {
+      "import": "./dist/renderer.mjs",
+      "require": "./dist/renderer.js",
+      "types": "./dist/renderer/index.d.ts"
+    },
     "./assets/style.css": "./assets/style.css",
     "./style": "./assets/style.css"
   },
